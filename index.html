@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://github.com/gojer16">
   <title>Redirecting...</title>
-  <!-- Google Analytics script here -->
+  <!-- Google tag (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    // Redirect after GA logs
+    setTimeout(() => {
+      window.location.href = "https://github.com/gojer16";
+    }, 500); // 0.5s delay ensures GA fires
+  </script>
 </head>
 <body>
-  <p>Redirecting to GitHub...</p>
+  <p>Redirecting to GitHub…</p>
 </body>
 </html>
