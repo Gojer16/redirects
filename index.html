@@ -4,25 +4,30 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <!-- Google tag (GA4) -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-FC5B5FMCKM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FC5B5FMCKM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-FC5B5FMCKM');
+    gtag('config', 'G-FC5B5FMCKM');
 
-  // Track custom event
-  gtag('event', 'resume_github_click', {
-    event_category: 'Resume',
-    event_label: 'GitHub Profile',
-    value: 1
-  });
+    // Get ?src parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const src = urlParams.get('src') || 'unknown';
 
-  setTimeout(() => {
-    window.location.href = "https://github.com/gojer16";
-  }, 500);
-</script>
+    // Log custom event with source
+    gtag('event', 'resume_github_click', {
+      event_category: 'Resume',
+      event_label: src,
+      value: 1
+    });
+
+    // Redirect after 500ms
+    setTimeout(() => {
+      window.location.href = "https://github.com/gojer16";
+    }, 500);
+  </script>
 </head>
 <body>
   <p>Redirecting to GitHub…</p>
