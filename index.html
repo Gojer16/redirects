@@ -43,9 +43,10 @@
 
     // Track click
     gtag('event', 'resume_project_click', {
-      event_category: 'Redirect',
-      event_label: `${src}-${project}`,
-      value: 1
+    event_category: 'Redirect',
+    event_label: `${src}-${project}`,
+    value: 1,
+    transport_type: 'beacon' 
     });
 
     // Redirect
