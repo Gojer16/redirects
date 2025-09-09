@@ -16,8 +16,9 @@
     const src = params.get('src') || 'unknown';
     const project = params.get('project') || 'main';
 
-    // Map of projects → GitHub links
-    const projectLinks = {
+    // Map of destinations
+    const redirectLinks = {
+      // GitHub
       main: "https://github.com/gojer16",
       portfolio: "https://github.com/Gojer16/Personal-Resume",
       school: "https://github.com/Gojer16/School-Webiste",
@@ -28,25 +29,32 @@
       ikea: "https://github.com/Gojer16/Ikea-Kreativ-Clone",
       weather: "https://github.com/Gojer16/Weather-Dashboard-with-Geolocation",
       mac: "https://github.com/Gojer16/mac-os-terminal-ui",
+
+
+      // External
+      linkedin: "https://www.linkedin.com/in/orlando-ascanio-dev",
+      devto: "https://dev.to/gojer16",
+      portfolioSite: "http://react-basic-resume.vercel.app"
+      // add more here
     };
 
-    // Choose redirect target (default = main profile)
-    const redirectUrl = projectLinks[project] || projectLinks.main;
+    // Choose redirect target (default = main GitHub profile)
+    const redirectUrl = redirectLinks[project] || redirectLinks.main;
 
-    // Send tracking event
+    // Track click
     gtag('event', 'resume_project_click', {
       event_category: 'Redirect',
       event_label: `${src}-${project}`,
       value: 1
     });
 
-    // Redirect after slight delay
+    // Redirect
     setTimeout(() => {
       window.location.href = redirectUrl;
     }, 500);
   </script>
 </head>
 <body>
-  <p>Redirecting to GitHub…</p>
+  <p>Redirecting…</p>
 </body>
 </html>
