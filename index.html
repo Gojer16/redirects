@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
-  <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FC5B5FMCKM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,14 +10,11 @@
     gtag('js', new Date());
     gtag('config', 'G-FC5B5FMCKM');
 
-    // Read query params
     const params = new URLSearchParams(window.location.search);
     const src = params.get('src') || 'unknown';
     const project = params.get('project') || 'main';
 
-    // Map of destinations
     const redirectLinks = {
-      // GitHub
       main: "https://github.com/gojer16",
       portfolio: "https://github.com/Gojer16/Personal-Resume",
       school: "https://github.com/Gojer16/School-Webiste",
@@ -29,27 +25,20 @@
       ikea: "https://github.com/Gojer16/Ikea-Kreativ-Clone",
       weather: "https://github.com/Gojer16/Weather-Dashboard-with-Geolocation",
       mac: "https://github.com/Gojer16/mac-os-terminal-ui",
-
-
-      // External
       linkedin: "https://www.linkedin.com/in/orlando-ascanio-dev",
       devto: "https://dev.to/gojer16",
-      portfolioSite: "http://react-basic-resume.vercel.app"
-      // add more here
+      portfoliosite: "http://react-basic-resume.vercel.app"
     };
 
-    // Choose redirect target (default = main GitHub profile)
-    const redirectUrl = redirectLinks[project] || redirectLinks.main;
+    const redirectUrl = redirectLinks[project.toLowerCase()] || redirectLinks.main;
 
-    // Track click
     gtag('event', 'resume_project_click', {
-    event_category: 'Redirect',
-    event_label: `${src}-${project}`,
-    value: 1,
-    transport_type: 'beacon' 
+      event_category: 'Redirect',
+      event_label: `${src}-${project}`,
+      value: 1,
+      transport_type: 'beacon'
     });
 
-    // Redirect
     setTimeout(() => {
       window.location.href = redirectUrl;
     }, 500);
