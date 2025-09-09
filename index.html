@@ -11,9 +11,17 @@
   gtag('js', new Date());
 
   gtag('config', 'G-FC5B5FMCKM');
-   setTimeout(() => {
-      window.location.href = "https://github.com/gojer16";
-    }, 500);
+
+  // Track custom event
+  gtag('event', 'resume_github_click', {
+    event_category: 'Resume',
+    event_label: 'GitHub Profile',
+    value: 1
+  });
+
+  setTimeout(() => {
+    window.location.href = "https://github.com/gojer16";
+  }, 500);
 </script>
 </head>
 <body>
